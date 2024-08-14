@@ -25,12 +25,15 @@ CREATE TABLE Students (
     college VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (student_id) REFERENCES Users(user_id) ON DELETE CASCADE
+    FOREIGN KEY (student_id) REFERENCES Users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (roll_number) REFERENCES Users(username) ON DELETE CASCADE
+
 );
 
 -- Create Teachers table
 CREATE TABLE Teachers (
     teacher_id INT PRIMARY KEY,
+    teacher_username VARCHAR(50);
     full_name VARCHAR(100) NOT NULL,
     department VARCHAR(50),
     title VARCHAR(50),
@@ -38,7 +41,9 @@ CREATE TABLE Teachers (
     phone_number VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (teacher_id) REFERENCES Users(user_id) ON DELETE CASCADE
+    FOREIGN KEY (teacher_id) REFERENCES Users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (teacher_username) REFERENCES Users(username) ON DELETE CASCADE
+
 );
 
 -- Create Admins table
