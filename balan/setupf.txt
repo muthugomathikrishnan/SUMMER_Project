@@ -26,8 +26,6 @@ CREATE TABLE Students (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (student_id) REFERENCES Users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (roll_number) REFERENCES Users(username) ON DELETE CASCADE
-
 );
 
 -- Create Teachers table
@@ -41,9 +39,7 @@ CREATE TABLE Teachers (
     phone_number VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (teacher_id) REFERENCES Users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (teacher_username) REFERENCES Users(username) ON DELETE CASCADE
-
+    FOREIGN KEY (teacher_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
 
 -- Create Admins table
